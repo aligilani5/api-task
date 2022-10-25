@@ -29,4 +29,12 @@ class ApiController extends Controller
 
         return $newListedProducts;
     }
+
+    //All categories with atleast one product
+    public function getAllCategoriesWithAtleastProduct() {
+
+        $categoriesWithAtleastProduct = Category::has('products')->with('products')->get();
+
+        return $categoriesWithAtleastProduct;
+    }
 }
