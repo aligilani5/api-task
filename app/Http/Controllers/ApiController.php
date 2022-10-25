@@ -13,7 +13,7 @@ class ApiController extends Controller
         $categoriesWithProductsPrice = Category::whereHas('products', function($q){
             return $q->where('price', '>', 500);
         })->get();
-        
+
         return $categoriesWithProductsPrice;
     }
 }
